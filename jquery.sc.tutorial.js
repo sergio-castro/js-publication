@@ -6,7 +6,7 @@
 	$.prettifyCodeSnippets = function(theme) {
 		$('*[data-editor]').each(function () {
 			var original_editor = $(this);
-			var original_text = original_editor.html();
+			var original_text = original_editor.text();
 			var mode = original_editor.data('editor');
 
 			var editDiv = $('<div>', {
@@ -23,6 +23,7 @@
 			else
 				editor.renderer.setShowGutter(true);
 			editor.setHighlightActiveLine(false);
+			editor.setShowPrintMargin(false);
 			editor.getSession().setValue(original_text);
 			editor.getSession().setMode("ace/mode/" + mode);
 			editor.setTheme("ace/theme/" + theme);
