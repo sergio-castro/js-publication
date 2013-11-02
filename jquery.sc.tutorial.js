@@ -6,10 +6,11 @@
 	$.prettifyCodeSnippets = function(theme) {
 		$('*[data-editor]').each(function () {
 			var original_editor = $(this);
+			original_editor.addClass('ace_editor'); //in order of this script to work, the original editor should use the same space than the ace editor.
 			var original_text = original_editor.text();
 			var mode = original_editor.data('editor');
 
-			var editDiv = $('<div>', {
+			var editDiv = $('<div>', { //an ace editor must be explicitly sized and positioned absolute or relative for Ace to work (https://github.com/ajaxorg/ace).
 				position: 'absolute',
 				width: original_editor.width(),
 				height: original_editor.height(),
@@ -18,6 +19,7 @@
 			//original_editor.css('visibility', 'hidden'); //an invisible element still uses space.
 			original_editor.hide(); //equivalent to .css( "display", "none" ), the hidden element does not use space.
 			var editor = ace.edit(editDiv[0]);
+
 			if(false == original_editor.data('show-gutter'))
 				editor.renderer.setShowGutter(false);
 			else
