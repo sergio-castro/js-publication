@@ -110,7 +110,7 @@
 			width: 400,
 			height: 400
 		},{
-			moviePath: 'js/ZeroClipboard10.swf'
+			moviePath: 'js/publication/ZeroClipboard10.swf'
 		});
 	}
 	
