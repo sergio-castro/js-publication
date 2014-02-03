@@ -1,8 +1,6 @@
-
-
 (function ($) {
 
-	$.configurePublications = function(allPublicationsId, publicationsDistribution) {
+	$.classifyPublications = function(allPublicationsId, publicationsDistribution) {
 		var bibTex = $('#'+allPublicationsId).find('.BibTex');
 		
 		for (var i = 0; i < publicationsDistribution.length; i++) {
@@ -10,6 +8,10 @@
 		    addAllBibTexWithTypeTo(bibTex, entry.publicationType, entry.target);
 		}
 		
+		prettifyPublications();
+	}
+	
+	function prettifyPublications() {
 		newBibTexDialog();
 		$('.bibTexIcon').click(function(){ 
 			openBibTexDialog($(this).next().next().find('.BibTex').html()); //Change this. It is imperatively stated how to arrive to the description node. VERY WEAK INDEED. (the image is a sibling of the description node, located to nodes after ...)
@@ -18,8 +20,8 @@
 		$(".abstractLabel").click(function() {
 			$(this).next().slideToggle("slow");	
 		});
-	}
-		
+	}	
+	
 	function publicationType(bibTex) {
 		return (bibTex.match(/\s*\@(\w+)\{/)[1]).toLowerCase();
 	}
@@ -31,8 +33,6 @@
 	function bibTexEntryNodes(bibTex) {
 		var pubDetails = $(bibTex).closest('.Pub');
 		var pubTitle = pubDetails.prev();
-	
-
 		return formatBibTexEntryNodes(pubTitle.add(pubDetails));
 	}
 	
@@ -88,9 +88,13 @@
 	
 	
 	function addAllBibTexWithTypeTo(allBibTex, type, to) {
-		var filtered = allBibTex.filter(function() {
-			return bibTexIs(this.innerHTML, type);
-		});
+		var filtered = allBibTex;
+		if(type != null) {
+			filtered = allBibTex.filter(function() {
+				return bibTexIs(this.innerHTML, type);
+			});
+		}
+		
 		var list = $('<dl>');
 		filtered.each(function() {
 			//addBibTexTo(this, to);
