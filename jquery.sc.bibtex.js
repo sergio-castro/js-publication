@@ -68,10 +68,10 @@
 			
 			var fileName = bibtexData['cite'] + '.pdf';
 			//alert(fileName);
-			formattedNodes = formattedNodes.add("<a href='files/publications/"+fileName+"'><img src='img/pdf.gif' class='im publicationIcon pdfIcon' title='Download publication' alt='PDF' longdesc='PDF' style='float: right' /></a>");
+			formattedNodes = formattedNodes.add("<a href='files/publications/"+fileName+"'><img src='img/publication/pdf.gif' class='im publicationIcon pdfIcon' title='Download publication' alt='PDF' longdesc='PDF' style='float: right' /></a>");
 		}
 		
-		formattedNodes = formattedNodes.add("<img src='img/bibtex-text-x-icone-5790-32.png' class='im publicationIcon bibTexIcon' title='BibTex' alt='BibTex' style='float: right'>");
+		formattedNodes = formattedNodes.add("<img src='img/publication/bibtex.png' class='im publicationIcon bibTexIcon' title='BibTex' alt='BibTex' style='float: right'>");
 		
 		formattedNodes =  formattedNodes.add("<div class='clearfloat'>");
 		
