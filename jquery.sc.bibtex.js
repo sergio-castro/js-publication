@@ -50,7 +50,7 @@
 	
 	
 	function formatBibTexEntryNodes(bibTexEntryNodes) {
-		var publicationsWithPDF = ['article', 'conference','inproceedings', 'techreport', 'mastersthesis'];
+		var publicationsWithPDF = ['article', 'conference','inproceedings', 'techreport', 'mastersthesis', 'phdthesis'];
 		
 		bibTexEntryNodes.remove();
 		var descriptionNode = $(bibTexEntryNodes.get(0)).css("float", "left");
